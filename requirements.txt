@@ -1,0 +1,17 @@
+Keras==2.4.3
+Keras-Applications==1.0.8
+Keras-Preprocessing==1.1.2
+matplotlib==3.4.2
+numpy==1.20.3
+pandas==1.2.4
+pyparsing==2.4.7
+PyQt5==5.15.4
+PyQt5-sip==12.9.0
+PyQt5-stubs==5.15.2.0
+PyQtWebEngine==5.15.4
+tensorboard==2.5.0
+tensorflow==2.5.0
+tensorflow-estimator==2.5.0
+openpyxl==3.0.7
+scikit-learn==0.24.2
+numba==0.53.1

@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Справка</title>
+    <style>
+        body {
+            color: black;
+            font-family: 'Roboto', sans-serif;
+        }
+
+        img {
+            max-width: 100%;
+        }
+    </style>
+</head>
+<body>
+<h1 id="h1">Справка</h1>
+<hr>
+<h2 id="interface">Интерфейс</h2>
+<h3 id="main-window">Главное окно</h3>
+<p><img src="screenshots/screenshot1.png" alt="Скриншот 1"></p>
+<p>На рисунке выше числами отмечены функциональные элементы:</p>
+<ol>
+    <li id="mw-1">Кнопка меню &quot;Настройки&quot;. Открывает окно настроек программы.</li>
+    <li id="mw-2">Кнопка меню &quot;Легенда&quot;. Позволяет включать и выключать отображение легенды на графиках.</li>
+    <li id="mw-3">Кнопка меню &quot;Справка&quot;. Открывает текущее окно.</li>
+    <li id="mw-4">Путь к файлу с координатами точек. Не редактируемое поле.</li>
+    <li id="mw-5">Кнопка &quot;Открыть&quot;. Вызывает диалог выбора файла с координатами точек. Выбранный путь к файлу
+        отобразится в поле <a href="#mw-4">[4]</a>.
+        После загрузки файла автоматически производится его обработка, и на графике <a href="#mw-11">[11]</a>
+        отображаются содержащиеся в нем точки.
+    </li>
+    <li id="mw-6">Кнопка &quot;Рассчитать&quot;. Запускает работу нейронной сети. В качестве результата строит точки на
+        графике <a href="#mw-12">[12]</a>
+        и выводит точность нейронной сети в поле <a href="#mw-13">[13]</a>.
+    </li>
+    <li id="mw-7">Кнопка &quot;Сбросить&quot;. Очищает график <a href="#mw-12">[12]</a> и результат работы нейронной
+        сети в поле <a href="#mw-13">[13]</a>.
+    </li>
+    <li id="mw-8">Путь к файлу экспорта в Excel. Не редактируемое поле.</li>
+    <li id="mw-9">Кнопка &quot;Выбрать&quot;. Вызывает диалог выбора файла для экспорта результатов работы нейронной
+        сети в Excel.
+    </li>
+    <li id="mw-10">Кнопка &quot;Выгрузить&quot;. Осуществляет экспорт результатов работы в выбранный файл.</li>
+    <li id="mw-11">График исходных значений. Заполняется в момент выбора файла после нажатия кнопки <a
+            href="#mw-5">[5]</a>.
+    </li>
+    <li id="mw-12">График, отражающий результат работы нейронной сети. Заполняется после нажатия кнопки <a href="#mw-6">[6]</a>.
+    </li>
+    <li id="mw-13">Поле вывода результатов нейронной сети.</li>
+</ol>
+<h3 id="settings-window">Окно настроек</h3>
+<p><img src="screenshots/screenshot2.png" alt="Скриншот 2"></p>
+<p>На рисунке выше числами отмечены функциональные элементы:</p>
+<ol>
+    <li id="sw-1">HEX-код цвета фона графиков. Значение по умолчанию: <code>#ffffff</code>.</li>
+    <li id="sw-2">Кнопка выбора. Вызывает диалог выбора цвета для поля <a href="#sw-1">[1]</a>.</li>
+    <li id="sw-3">Настройка отображения для точки определенного класса.
+        <ol>
+            <li id="sw-31">HEX-код цвета точки. Значение по умолчанию: <code>#000000</code>.</li>
+            <li id="sw-32">Кнопка выбора. Вызывает диалог выбора цвета для поля <a href="#sw-31">[3.1]</a></li>
+            <li id="sw-33">Поле выбора формы точки. Представлен выбор из 25 вариантов.</li>
+            <li id="sw-34">Поле ввода названия класса. Данное название отображается в легенде на графиках.</li>
+        </ol>
+    </li>
+</ol>
+<ol start="10">
+    <li id="sw-10">Кнопка отмены. Закрывает окно, не сохраняя сделанные изменения в настройках</li>
+    <li id="sw-11">Кнопка сохранения. Закрывает окно, сохраняет и применяет настройки.</li>
+</ol>
+<hr>
+<h2 id="functions">Функционал</h2>
+<p>Программа работает с размеченными файлами, содержащими координаты точек. Формат файла:</p>
+<pre><code>КЛАСС_ТОЧКИ КООРДИНАТА_X КООРДИНАТА_Y КООРДИНАТА_Z
+</code></pre>
+<p>или</p>
+<pre><code>КООРДИНАТА_X КООРДИНАТА_Y КООРДИНАТА_Z
+</code></pre>
+<p>Например, </p>
+<pre><code><span class="hljs-symbol">2 </span><span class="hljs-number">0</span> <span
+        class="hljs-number">0</span> -<span class="hljs-number">3.83641670396183</span>
+<span class="hljs-symbol">2 </span><span class="hljs-number">0</span> <span class="hljs-number">0.5</span> -<span
+            class="hljs-number">3.8323789447179</span>
+<span class="hljs-symbol">2 </span><span class="hljs-number">0</span> <span class="hljs-number">1</span> -<span
+            class="hljs-number">3.83373747825048</span>
+<span class="hljs-symbol">2 </span><span class="hljs-number">0</span> <span class="hljs-number">1.5</span> -<span
+            class="hljs-number">3.84868682036131</span>
+<span class="hljs-symbol">2 </span><span class="hljs-number">0</span> <span class="hljs-number">2</span> -<span
+            class="hljs-number">3.6971141125109</span>
+</code></pre>
+<p>или</p>
+<pre><code><span class="hljs-symbol">0 </span><span class="hljs-number">0</span> -<span class="hljs-number">3.83641670396183</span>
+<span class="hljs-symbol">0 </span><span class="hljs-number">0.5</span> -<span
+            class="hljs-number">3.8323789447179</span>
+<span class="hljs-symbol">0 </span><span class="hljs-number">1</span> -<span class="hljs-number">3.83373747825048</span>
+<span class="hljs-symbol">0 </span><span class="hljs-number">1.5</span> -<span
+            class="hljs-number">3.84868682036131</span>
+<span class="hljs-symbol">0 </span><span class="hljs-number">2</span> -<span class="hljs-number">3.6971141125109</span>
+</code></pre>
+<p>Если в файле класс точки не задан, программа определяет ее &quot;Неизвестной&quot;. При этом метрика качества
+    нейронной сети в поле <a href="#mw-13">[13]</a> будет выводить значение точности, равное нулю. </p>
+<hr>
+<h2 id="use">Взаимодействие</h2>
+<p>Для взаимодействия с графиками используется мышь:</p>
+<ul>
+    <li>При движении курсора с зажатой левой клавишей мыши, график будет вращаться вокруг собственного центра.</li>
+    <li>При движении курсора с зажатым колесиком мыши, график будет смещать центр.</li>
+    <li>При движении курсора с зажатой правой клавишей мыши, график будет менять масштаб.</li>
+    <li>Двойное нажатие левой кнопкой мыши развернет график, заполнив им рабочую область окна.
+        Повторное двойное нажатие вернет его к исходным размерам.
+    </li>
+</ul>
+<p><img src="screenshots/screenshot3.png" alt="Скриншот 3"></p>
+<hr>
+<h2 id="neural">Нейронная сеть</h2>
+<p>На вход подается <code>120</code> точек.<br>Во входном слое <code>120</code> нейронов, в выходном –
+    <code>6</code>.<br>Количество скрытых слоёв: <code>2</code> (<code>200</code> и <code>120</code> нейронов
+    соответственно).<br>Функция активации на входных и скрытых слоях – <code>ReLu</code>, на выходном
+    <code>SoftMax</code>.<br>Оптимизатор сети – <code>Adam</code> со скоростью обучения <code>0.0001</code>.<br>Количество
+    эпох – <code>30</code>.<br>Для предсказывания результатов работы модели используется функция <code>predict()</code>
+    пакета <code>keras.models</code> на языке <code>Python</code>.</p>
+
+</body>
+</html>
